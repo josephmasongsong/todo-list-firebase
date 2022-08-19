@@ -19,8 +19,8 @@ const App = () => {
   }, []);
 
   const deleteTodo = async id => {
-    const docRef = doc(db, 'todos', id);
     try {
+      const docRef = await doc(db, 'todos', id);
       await deleteDoc(docRef);
     } catch (err) {
       console.log(err.message);
@@ -28,8 +28,8 @@ const App = () => {
   };
 
   const updateTodo = async todo => {
-    const docRef = doc(db, 'todos', todo.id);
     try {
+      const docRef = await doc(db, 'todos', todo.id);
       await updateDoc(docRef, todo);
     } catch (err) {
       console.log(err.message);

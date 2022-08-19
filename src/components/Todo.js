@@ -12,8 +12,7 @@ const Todo = ({ todo, deleteTodo, updateTodo }) => {
 
   const handleUpdateOnKeyDown = e => {
     if (e.key === 'Enter' || e.keyCode === 13) {
-      updateTodo({ ...todo, title });
-      setEditable(false);
+      handleUpdate();
     }
   };
 
