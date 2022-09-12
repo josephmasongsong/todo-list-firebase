@@ -21,24 +21,24 @@ const App = () => {
   const deleteTodo = async id => {
     try {
       const docRef = await doc(db, 'todos', id);
-      await deleteDoc(docRef);
+      deleteDoc(docRef);
     } catch (err) {
-      console.log(err.message);
+      console.log('An error occurred: ', err.message);
     }
   };
 
   const updateTodo = async todo => {
     try {
       const docRef = await doc(db, 'todos', todo.id);
-      await updateDoc(docRef, todo);
+      updateDoc(docRef, todo);
     } catch (err) {
-      console.log(err.message);
+      console.log('An error occurred: ', err.message);
     }
   };
 
   return (
     <div>
-      <h1>Todo List</h1>
+      <h1>Todo List Firesbase</h1>
       <Form />
       {todos.map(todo => (
         <Todo

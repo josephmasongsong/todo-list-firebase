@@ -1,5 +1,9 @@
 import { useState } from 'react';
 
+const buttonStyle = {
+  marginLeft: '5px',
+};
+
 const Todo = ({ todo, deleteTodo, updateTodo }) => {
   const [editable, setEditable] = useState(false);
   const [isChecked, setIsChecked] = useState(todo.complete);
@@ -39,17 +43,21 @@ const Todo = ({ todo, deleteTodo, updateTodo }) => {
       {todoItem}
 
       {!todo.complete && (
-        <button onClick={() => setEditable(!editable)}>
+        <button onClick={() => setEditable(!editable)} style={buttonStyle}>
           {editable ? 'cancel' : 'edit'}
         </button>
       )}
 
       {editable ? (
-        <button onClick={handleUpdate}>save</button>
+        <button onClick={handleUpdate} style={buttonStyle}>
+          save
+        </button>
       ) : (
         <>
           {!todo.complete && (
-            <button onClick={() => deleteTodo(todo.id)}>delete</button>
+            <button onClick={() => deleteTodo(todo.id)} style={buttonStyle}>
+              delete
+            </button>
           )}
 
           <label>

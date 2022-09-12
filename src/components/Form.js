@@ -12,9 +12,10 @@ const Form = () => {
         title,
         complete: false,
       };
-      await addDoc(colRef, todo).then(() => setTitle(''));
+      await addDoc(colRef, todo);
+      setTitle('');
     } catch (err) {
-      console.log(err.message);
+      console.log('An error occurred: ', err.message);
     }
   };
 
@@ -26,7 +27,7 @@ const Form = () => {
         onChange={e => setTitle(e.target.value)}
         required
       />
-      <input type="submit" value="add todo" />
+      <input type="submit" value="add todo" style={{ marginLeft: '5px' }} />
     </form>
   );
 };
