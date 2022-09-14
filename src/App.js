@@ -38,7 +38,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>Todo List Firesbase</h1>
+      <h1>Todo List Firebase</h1>
       <Form />
       {todos.map(todo => (
         <Todo
