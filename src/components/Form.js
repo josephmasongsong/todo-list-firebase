@@ -7,11 +7,13 @@ const Form = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
+
+    const todo = {
+      title,
+      complete: false,
+    };
+
     try {
-      const todo = {
-        title,
-        complete: false,
-      };
       await addDoc(colRef, todo);
       setTitle('');
     } catch (err) {
